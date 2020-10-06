@@ -1,6 +1,6 @@
 # Ask user for activity and print a different message depending on the answer
 print("Please enter the activity to be performed.")
-activity= input()
+activity = input()
 if (activity == "calculate"):
   print("Performing calculations...")
 else:
