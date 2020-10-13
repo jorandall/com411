@@ -1,11 +1,11 @@
 # Define ladder function
 def display_ladder(steps):
-  steps_taken = 0
-  while steps_taken < steps:
-    print("| |")
-    print(" *** ")
-    steps_taken += 1
-  print("| |")
+
+  for step in range(steps):
+    print("|  |")
+    print("****")
+
+  print("|  |")
 
 # Define create ladder function
 def create_ladder():
