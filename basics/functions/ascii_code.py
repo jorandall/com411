@@ -11,6 +11,5 @@ else:
   print("Error. Single letter not entered, cannot convert.")
 
 # End program
-
 print("Program Ended!")
 
