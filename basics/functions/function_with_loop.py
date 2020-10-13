@@ -1,9 +1,8 @@
 # Define function
 def cross_bridge(distance):
-  step = 0
-  while step != distance:
-    print("Crossed step")
-    step += 1
+  for step in range(steps):
+    print("Crossed step.")
+
   if distance > 5:
     print("The bridge is collapsing!")
   else:
@@ -13,3 +12,4 @@ def cross_bridge(distance):
 
 cross_bridge(3)
 cross_bridge(6)
+
