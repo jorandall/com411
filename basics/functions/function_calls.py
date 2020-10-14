@@ -17,9 +17,11 @@ def display_upper(word):
   print(word.upper())
 
 def mirrored(word):
-  print(word, "| ", end="")
-  for position in range(len(word) -1, -1, -1):
-    print(word[position], end="")
+  reverse_word = ""
+  for letter in reversed(word):
+    reverse_word += letter
+  
+  print("{} | {}".format(word, reverse_word))
 
 def repeat(word):
   print("How many times do you want this word repeated?")
