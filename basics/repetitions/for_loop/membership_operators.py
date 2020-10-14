@@ -1,13 +1,14 @@
-# Ask user for a phrase
-print("What phrase do you see?")
-phrase = input()
+def run():
+  # Ask user for a phrase
+  print("What phrase do you see?")
+  phrase = input()
 
-# Identify markings
-print("\nReversing...\nThe phrase is: ", end="")
+  # Identify markings
+  print("\nReversing...\nThe phrase is: ", end="")
 
-reversed = ""
+  reversed = ""
 
-for letter in phrase:
-  reversed = letter + reversed
+  for letter in phrase:
+    reversed = letter + reversed
 
-print(reversed)
+  print(reversed)

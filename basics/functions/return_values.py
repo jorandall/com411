@@ -28,4 +28,4 @@ def run():
     print("Action not recognised.")
 
 # Call the function
-run()
+#run()

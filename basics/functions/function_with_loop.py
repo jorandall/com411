@@ -1,15 +1,18 @@
-# Define function
-def cross_bridge(distance):
+# Define functions
+def cross_bridge(steps):
   for step in range(steps):
     print("Crossed step.")
 
-  if distance > 5:
+  if (steps > 5):
     print("The bridge is collapsing!")
   else:
     print("We must keep going!")
 
+def run():
+  print("Please tell me how many steps over the bridge to take:")
+  steps = int(input())
+  cross_bridge(steps)
+
 # Call function
 
-cross_bridge(3)
-cross_bridge(6)
-
+#run()

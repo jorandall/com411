@@ -14,4 +14,4 @@ def create_ladder():
   display_ladder(steps)
 
 # Call function
-create_ladder()
+#create_ladder()

@@ -9,8 +9,13 @@ def escape_by(plan):
   else:
     print("We cannot escape that way! The boulder is in the way!")
 
+def run():
+  print("What's our plan? (Jumping over, running around, going deeper, or something else?")
+  plan = input()
+  escape_by(plan)
+
 # Call function
-escape_by("jumping over")
-escape_by("running around")
-escape_by("going deeper")
-escape_by("flying")
+# escape_by("jumping over")
+# escape_by("running around")
+# escape_by("going deeper")
+# escape_by("flying")
