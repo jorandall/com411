@@ -42,7 +42,10 @@ import basics.functions.function_with_parameter as function_with_parameter
 import basics.functions.function_with_parameters as function_with_parameters
 import basics.functions.multiple_functions as multiple_functions
 import basics.functions.return_values as return_values_function
+<<<<<<< HEAD
 import basics.functions.simple_function as simple_function
+=======
+>>>>>>> b92328d0447f9f1ef3b9c67251a17288b3a5df8c
 
 # Define function to import modules
 def run_block_a():
@@ -134,8 +137,11 @@ def run_block_a():
     multiple_functions.create_ladder()
   elif (response == "return values"):
     return_values_function.run()
+<<<<<<< HEAD
   elif (response == "simple function"):
     simple_function.listen()
+=======
+>>>>>>> b92328d0447f9f1ef3b9c67251a17288b3a5df8c
 
 
 
