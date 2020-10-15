@@ -16,42 +16,55 @@ def display_lower(word):
 def display_upper(word):
   print(word.upper())
 
-def mirrored(word):
+def display_mirrored(word):
   reverse_word = ""
   for letter in reversed(word):
     reverse_word += letter
   
   print("{} | {}".format(word, reverse_word))
 
-def repeat(word):
+def display_repeated(word):
   print("How many times do you want this word repeated?")
-  repeat = int(input())
-  print(word * repeat)
+  repetitions = int(input())
+  repeated = 0
+
+  for repetition in range(repetitions):
+    print(word)
+    repeated += 1
+
+
 
 # Define run function
 def run():
   print("Please enter a word:")
   word = input()
-  print("""Please choose one of the following options for how to proceed:
-  1. Display in a box
-  2. Display in lower case
-  3. Display in upper case
-  4. Display mirrored
-  5. Repeat""")
-  choice = int(input())
+  choice = 0
 
-  if choice == 1:
-    return display_box(word)
-  elif choice == 2:
-    return display_lower(word)
-  elif choice == 3:
-    return display_upper(word)
-  elif choice == 4:
-    return mirrored(word)
-  elif choice == 5:
-    return repeat(word)
-  else:
-    print("{} is not a valid option".format(choice))
+  while (choice != 6):
+    print("""Please choose one of the following options for how to proceed:
+  [1] Display word in a box
+  [2] Display word in lower case
+  [3] Display word in upper case
+  [4] Display word as mirrored
+  [5] Display repeated word
+  [6] Quit""")
+
+    choice = int(input())
+
+    if (choice == 1):
+      return display_box(word)
+    elif (choice == 2):
+      return display_lower(word)
+    elif (choice == 3):
+      return display_upper(word)
+    elif (choice == 4):
+      return display_mirrored(word)
+    elif (choice == 5):
+      return display_repeated(word)
+    elif (choice == 6):
+      break
+    else:
+      print("{} is not a valid option".format(choice))
 
 # call the run function
-run()
+#run()
