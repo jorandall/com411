@@ -4,7 +4,10 @@ def likelihood():
 
   return min(likelihoods), max(likelihoods)
 
+# Define run function
 def run():
   values = likelihood()
-  print("Minimum likelihood of falling: {}%".format(values[0]))
+
+  # Index to the nested list (min and max)
+  print("Minimum likelihood of falling: {}%".format(values[0])) 
   print("Maximum likelihood of falling: {}%".format(values[1]))
