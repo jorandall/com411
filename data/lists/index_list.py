@@ -5,6 +5,7 @@ def movements():
 def run():
   print("Moving...")
   direction = movements()
+  
   print("{} for {} steps.".format(direction[0], direction[1]))
   print("{} for {} steps.".format(direction[2], direction[3]))
   print("{} for {} steps.".format(direction[4], direction[5]))
