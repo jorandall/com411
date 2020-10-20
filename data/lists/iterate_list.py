@@ -20,4 +20,4 @@ def run():
   menu()
 
 # Run function call
-run()
+#run()

@@ -43,6 +43,12 @@ import basics.functions.function_with_parameters as function_with_parameters
 import basics.functions.multiple_functions as multiple_functions
 import basics.functions.return_values as return_values_function
 import basics.functions.simple_function as simple_function
+import data.lists.simple_list as simple_list
+import data.lists.populate_list as populate_list
+import data.lists.index_list as index_list
+import data.lists.iterate_list as iterate_list
+import data.tuples.simple_tuple as simple_tuple
+import data.tuples.function_tuple as function_tuple
 
 
 # Define function to import modules
@@ -138,6 +144,22 @@ def run_block_a():
   elif (response == "simple function"):
     simple_function.listen()
 
+def run_block_b():
+  print("Which program in 'Block B: Data' do you wish to run?")
+  response = input()
+  if (response == "simple list"):
+    simple_list.run()
+  elif (response == "index list"):
+    index_list.run()
+  elif (response == "iterate list"):
+    iterate_list.run()
+  elif (response == "populate list"):
+    populate_list.run()
+  elif (response == "simple tuple"):
+    simple_tuple.run()
+  elif (response == "function tuple"):
+    function_tuple.run()
+
 
 
 # Define function to navigate by
@@ -147,11 +169,15 @@ def run():
   while(is_running):
     print("What would you like to do?")
     print("[a] Run 'Block A: Basics' programs")
+    print("[b] Run 'Block B: Data' programs")
     print("[q] Quit")
     response = input()
 
     if (response == "a"):
       run_block_a()
+      print("\n+ + + program complete + + +\n")
+    elif (response == "b"):
+      run_block_b()
       print("\n+ + + program complete + + +\n")
     elif (response == "q"):
       break

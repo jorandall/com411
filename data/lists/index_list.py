@@ -21,5 +21,5 @@ def run():
     print("{} for {} steps.".format(path[index], path[index+1]))
   
 # Run function call
-run()
+#run()
   

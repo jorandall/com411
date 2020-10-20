@@ -2,9 +2,9 @@
 def likelihood():
   likelihoods = (50, 38, 27, 99, 4)
 
-  return("Minimum likelihood of falling: {}%.".format(min(likelihoods)))
-  return("Maximum likelihood of falling: {}%.".format(max(likelihoods)))
+  return min(likelihoods), max(likelihoods)
 
-# Likelihood function call
-print(likelihood())
-print(likelihood())
+def run():
+  values = likelihood()
+  print("Minimum likelihood of falling: {}%".format(values[0]))
+  print("Maximum likelihood of falling: {}%".format(values[1]))

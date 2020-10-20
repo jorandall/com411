@@ -34,4 +34,4 @@ def run():
   print("\nEscape route: {}".format(route))
 
 # Run function call
-run()
+#run()
