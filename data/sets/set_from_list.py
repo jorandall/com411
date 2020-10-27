@@ -3,7 +3,7 @@ def observed():
   observations = []
 
 # Ask the user for input x7
-  for count in range(7):
+  for observation in range(7):
     print("Please enter an observation:")
     observed = input()
     observations.append(observed)
