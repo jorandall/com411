@@ -2,7 +2,7 @@
 def observed():
   observations = []
 
-  for observation in range(5):
+  for count in range(5):
     print("Please enter an observation:")
     observed = input()
     observations.append(observed)
@@ -11,18 +11,18 @@ def observed():
 
 # Define function to remove observations
 def remove_observations(observations):
-  print("Do you wish to remove an observation (yes/no)?")
-  response = input()
-  
-  #If response is yes, request which observation to remove and action
-  if response == "yes":
+  response = "yes"
+
+  while response != "no":
+    print("Do you wish to remove an observation (yes/no)?")
+    response = input()
     print("What observation do you wish to remove?")
     observation_remove = input()
     observations.remove(observation_remove)
     print("Done!")
-  # If response is no, continue
-  else:
-    return
+
+  return remove_observations
+
 
 # Define function to run program
 def run():

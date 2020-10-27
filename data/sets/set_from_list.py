@@ -2,12 +2,13 @@
 def observed():
   observations = []
 
-# Ask the user for input x7
-  for observation in range(7):
+# Ask the user for input 7 times and add to the list
+  for count in range(7):
     print("Please enter an observation:")
     observed = input()
     observations.append(observed)
 
+# Return the compiled list
   return observations
 
 
@@ -18,9 +19,11 @@ def run():
   observation_set = set()
 
   for observation in observations:
-    observation_set.add((observation, observations.count(observation)))
+    occurrences = observations.count(observation)
+    observation_set.add( (observation, occurrences) )
     
-  print(observation_set)
+  for key, value in observation_set:
+    print(f"{key} observed {value} times.")
 
 # Function call for run
 run()
