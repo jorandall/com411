@@ -49,6 +49,7 @@ import data.lists.index_list as index_list
 import data.lists.iterate_list as iterate_list
 import data.tuples.simple_tuple as simple_tuple
 import data.tuples.function_tuple as function_tuple
+import data.tuples.nested_tuple as nested_tuple
 
 
 # Define function to import modules
@@ -159,6 +160,8 @@ def run_block_b():
     simple_tuple.run()
   elif (response == "function tuple"):
     function_tuple.run()
+  elif (response == "nested tuple"):
+    nested_tuple.run()
 
 
 
