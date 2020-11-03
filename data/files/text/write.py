@@ -8,9 +8,9 @@ def search(file_name):
     for line in file:
       if line.startswith("Section"):
         split = line.split(":")
-        sections.append(split[1][:-1])
+        sections.append(split[1][:-1]) # -1 removing \n from output
       else:
-        books.append(line[:-1])
+        books.append(line[:-1]) # -1 removing \n from output
   
   print("Done!")
   return(sections, books)
@@ -25,7 +25,7 @@ def save(file_name, library):
 
   print("Done!")
 
-# Define the run function
+# Define the run function and write the new document
 def run():
   data = search("data/files/text/books.txt")
   save("data/files/text/section-books.txt", data)
