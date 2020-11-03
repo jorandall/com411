@@ -17,6 +17,7 @@ import basics.repetitions.nested_loop.nesting as nesting
 import basics.repetitions.nested_loop.nested as nested
 import basics.repetitions.while_loop.ascii as ascii
 import basics.repetitions.while_loop.count as count
+import basics.repetitions.while_loop.factorial as factorial
 import basics.repetitions.while_loop.len as len
 import basics.repetitions.while_loop.simple as simple_while
 import basics.repetitions.while_loop.sum_100 as sum_100
@@ -64,6 +65,8 @@ def run_block_a():
     escape_characters.run()
   elif (response == "ascii robot"):
     ascii_robot.run()
+  elif (response == "ascii art"):
+    ascii_art.run()
   elif (response == "data types"):
     data_types.run()
   elif (response == "string operators"):
