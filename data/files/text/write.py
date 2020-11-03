@@ -6,9 +6,9 @@ def search(file_name):
 
   with open(file_name) as file:
     for line in file:
-      if line.startswith("Section"):
-        split = line.split(":")
-        sections.append(split[1][:-1]) # -1 removing \n from output
+      if line.startswith("Section"):  # If the line starts with section
+        section_name = line.split(":") # split the string after the colon
+        sections.append(section_name[1][:-1]) # -1 removing \n from output
       else:
         books.append(line[:-1]) # -1 removing \n from output
   
