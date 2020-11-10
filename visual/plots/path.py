@@ -6,7 +6,7 @@ def coordinate():
   x = input()
   print("Please enter the value for 'Y':")
   y = input()
-  return (x, y)
+  return [x, y]
 
 # Define function to work out the path
 def path():
@@ -25,7 +25,7 @@ def path():
 def run():
   values = path()
   for value in values:
-    plt.plot(values[0], values[1])
+    plt.plot(values[0], values[1], 'ro:')
   plt.show()
   
 run()
