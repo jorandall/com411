@@ -20,8 +20,20 @@ def save(file_name, library):
   print("Saving...", end="")
 
   with open(file_name, "w") as file:
-    file.write(f"Sections: {library[0]}")
-    file.write(f"\nBooks: {library[1]}")
+    
+    file.write("Sections: ")
+    for index in range(len(library[0])):
+      if (index < len(library[0]) -1):
+        file.write(f"{library[0][index]}, ")
+      else:
+        file.write(f"{library[0][index]}.")
+
+    file.write(f"\nBooks: ")
+    for index in range(len(library[1])):
+      if (index < len(library[1]) - 1):
+        file.write(f"{library[1][index]}, ")
+      else:
+        file.write(f"{library[1][index]}.")
 
   print("Done!")
 
