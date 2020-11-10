@@ -3,10 +3,10 @@ import matplotlib.pyplot as plt
 # Define function to coordinate 
 def coordinate():
   print("Please enter the value for 'X':")
-  x = input()
+  x = int(input())
   print("Please enter the value for 'Y':")
-  y = input()
-  return [x, y]
+  y = int(input())
+  return (x, y)
 
 # Define function to work out the path
 def path():
@@ -24,8 +24,9 @@ def path():
 # Define function to run the progra,
 def run():
   values = path()
-  for value in values:
-    plt.plot(values[0], values[1], 'ro:')
+  plt.plot(values[0], values[1], 'r--o')
+  plt.xlabel("x values")
+  plt.ylabel("y labels")
   plt.show()
   
 run()
