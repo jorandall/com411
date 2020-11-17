@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 
-
+# Read in the data file,  store data in a list and return completed list
 def read_data(file_name):
   data = []
 
   with open(file_name) as file:
     for line in file:
-      data.append(line)
+      data.append(int(line))
   
   return data
 
