@@ -10,14 +10,12 @@ def read_data():
       "fare": []
   }
 
-# Open CSV file
+  # Open CSV file
   with open("visual/subplots/titanic.csv") as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
-# Specify the headers and confirm which headers we want to use
-    header = next(csv_reader)   # Define header and tell program to read next line
-    
-
-# Read in the data from the CSV file and append to the dictionary accordingly
+    # Ignore header
+    header = next(csv_reader)
+    # Read in the data from the CSV file and append to the dictionary accordingly
     for line in csv_reader:
       survived = line[1].strip()
       sex = line[4].strip()
@@ -25,9 +23,9 @@ def read_data():
       fare = line[9].strip()
       
       if (survived != "" and sex != "" and age != "" and fare != ""):
-        data["survived"].append(bool(int("survived")))
+        data["survived"].append(bool(int(survived)))
 
-        if (int(sex) == 0):
+        if (sex == "male"):
           data["sex"].append("male")
         else:
           data["sex"].append("female")
