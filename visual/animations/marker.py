@@ -14,7 +14,7 @@ def animate(frame):
 def run():
   global fig # Declare fig as the global variable
 
-  animated = animation.FuncAnimation(
+  marker_animation = animation.FuncAnimation(
     fig, # Delcare what we are animating
     animate, # Function call to animate
     frames = 10, # How many frames our animation will have
