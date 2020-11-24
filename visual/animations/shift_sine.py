@@ -13,7 +13,7 @@ def animate(frame):
   # X value range from 0 to 720
   x = np.arange(0, 720)
 
-  # Calculate the y value with sin function, and dividing pi by 180
+  # Calculate the y value with sin function
   y = np.sin((x + frame) * (np.pi / 180))
 
   ax.plot(x, y)

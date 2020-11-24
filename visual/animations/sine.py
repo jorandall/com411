@@ -12,8 +12,11 @@ def animate(frame):
   # X value range from 0 to current frame
   x = np.arange(0, frame)
 
-  # Calculate the y value with sin function, and dividing pi by 180
-  y = np.sin(x * (np.pi / 180))
+  # Convert x into radians
+  x_in_radians = x * (np.pi / 180)
+
+  # Calculate the y value with sin function
+  y = np.sin(x_in_radians)
 
   ax.plot(x, y)
 
