@@ -13,15 +13,18 @@ def animate(frame):
   # X value range from 0 to 720
   x = np.arange(0, 720)
 
+  # Convert x into shifting radians
+  x_in_radians = (x + frame) * (np.pi / 180)
+
   # Calculate the y value with sin function
-  y = np.sin((x + frame) * (np.pi / 180))
+  y = np.sin(x_in_radians)
 
   ax.plot(x, y)
 
 def run():
   global fig # Declare fig as the global variable
 
-  sine_animation = animation.FuncAnimation(
+  shifting_sine_animation = animation.FuncAnimation(
     fig, # Delcare what we are animating
     animate, # Function call to animate
     frames = 720, # How many frames our animation will have
