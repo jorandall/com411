@@ -3,12 +3,12 @@ import csv
 
 def read_data():
   # Dictionary for our data
-    data = {
-      "Survived": [],
-      "Sex": [],
-      "Age": [],
-      "Fare": []
-    }
+  data = {
+      "survived": [],
+      "sex": [],
+      "age": [],
+      "fare": []
+  }
 
 # Open CSV file
   with open("visual/subplots/titanic.csv") as csv_file:
@@ -20,14 +20,14 @@ def read_data():
 # Read in the data from the CSV file and append to the dictionary accordingly
     for line in csv_reader:
       survived = line[1].strip()
-      gender = line[4].strip()
+      sex = line[4].strip()
       age = line[5].strip()
       fare = line[9].strip()
       
-      if (survived != "" and sex! = "" and age !="" and fare !=""):
-        data["survived"].append(bool(int("Survived")))
+      if (survived != "" and sex != "" and age != "" and fare != ""):
+        data["survived"].append(bool(int("survived")))
 
-        if (int(Sex) == 0):
+        if (int(sex) == 0):
           data["sex"].append("male")
         else:
           data["sex"].append("female")
@@ -40,7 +40,7 @@ def read_data():
 
 def plot_age_vs_survival(ax, data):
   # Create dictionaries for each age group
-  childen = {"survived": [], "deceased": []}
+  children = {"survived": [], "deceased": []}
   adults = {"survived": [], "deceased": []}
   elderly = {"survived": [], "deceased": []}
 
@@ -83,6 +83,98 @@ def plot_fare_vs_survival(ax, data):
     else:
       deceased.append(data["fare"][index])
 
+  ax.scatter(range(len(survived)), survived, labels="Survived")
+  ax.scatter(range(len(survived)), deceased, labels="Deceased")
+  ax.set_ylabel("fare")
+  ax.legend()
+  ax.set_title("Fare vs Survival")
+
+def plot_sex_vs_survival(ax, data):
+  males = {"survived": [], "deceased": []}
+  females = {"survived": [], "deceased": []}
+
+  for index in range(len(data["sex"])):
+    sex = data["sex"][index]
+    if (sex == "male" and data["survived"][index]):
+      males["survived"].append(sex)
+    elif (sex == "male" and not data["survived"][index]):
+      males["deceased"].append(sex)
+    elif (sex == "female" and data["survived"][index]):
+      females["survived"].append(sex)
+    else:
+      females["deceased"].append(sex)
+  
+  labels = ["male", "female"]
+  survivors = [len(males["survived"]), len(females["survived"])]
+  deceased = [len(males["deceased"]), len(females["deceased"])]
+
+  ax.bar(labels, survivors, label="Survived")
+  ax.bar(labels, deceased, bottom=survivors, label="Deceased")
+  ax.set_ylabel("Passengers")
+  ax.legend()
+  ax.set_title("Sex vs Survival")
+
+def plot_all_vs_survival(ax, data):
+  children = {
+    "male": {"survived": [], "deceased": []},
+    "female": {"survived": [], "deceased": []}
+  }
+
+  adults = {
+    "male": {"survived": [], "deceased": []},
+    "female": {"survived": [], "deceased": []}
+  }
+
+  elderly = {
+    "male": {"survived": [], "deceased": []},
+    "female": {"survived": [], "deceased": []}
+  }
+
+  for index in range(len(data["age"])):
+    age = data["age"][index]
+
+    # children
+    if (age < 18):
+      if (data["sex"][index] == "male" and data["survived"][index]):
+        children["male"]["survived"].append(age)
+      elif (data["sex"][index] == "male" and not data["survived"][index]):
+        children["male"]["deceased"].append(age)
+      elif (data["sex"][index] == "female" and data["survived"][index]):
+        children["female"]["survived"].append(age)
+      elif (data["sex"][index] == "female" and not data["survived"][index]):
+        children["female"]["survived"].append(age)
+
+    # adults
+    elif (age < 65):
+      if (data["sex"][index] == "male" and data["survived"][index]):
+        adults["male"]["survived"].append(age)
+      elif (data["sex"][index] == "male" and not data["survived"][index]):
+        adults["male"]["deceased"].append(age)
+      elif (data["sex"][index] == "female" and data["survived"][index]):
+        adults["female"]["survived"].append(age)
+      elif (data["sex"][index] == "female" and not data["survived"][index]):
+        adults["female"]["survived"].append(age)
+
+    # elderly
+    else:
+      if (data["sex"][index] == "male" and data["survived"][index]):
+        elderly["male"]["survived"].append(age)
+      elif (data["sex"][index] == "male" and not data["survived"][index]):
+        elderly["male"]["deceased"].append(age)
+      elif (data["sex"][index] == "female" and data["survived"][index]):
+        elderly["female"]["survived"].append(age)
+      elif (data["sex"][index] == "female" and not data["survived"][index]):
+        elderly["female"]["survived"].append(age)
+  
+  x_labels = ["children", "adults", "elderly"]
+  male_survivors = [len(children["male"]["survived"]), len(adults["male"]["survived"]), len(elderly["male"]["survived"])]
+  female_survivors = [len(children["female"]["survived"]), len(adults["female"]["survived"]), len(elderly["female"]["survived"])]
+
+  ax.plot(x_labels, male_survivors, label="Male Survivors")
+  ax.plot(x_labels, female_survivors, label="Female Survivors")
+  ax.set_title("Age, Sex vs Survival")
+  ax.legend()
+  ax.set_title("Fare vs Survival")
 
 
 # Define run function
@@ -90,9 +182,12 @@ def run():
   data = read_data()
 # Specify how many subplots and the title 
   fig, axs = plt.subplots(2, 2)
-  fig.suptitle("Titanic Statistics")
-
-
+  
+  # Display plots
+  plot_age_vs_survival(axs[0, 0], data)
+  plot_fare_vs_survival(axs[0, 1], data)
+  plot_sex_vs_survival(axs[1, 0], data)
+  plot_all_vs_survival(axs[1, 1], data)
 
   plt.tight_layout()
   plt.show()
