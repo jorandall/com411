@@ -25,15 +25,15 @@ def read_data():
       fare = line[9].strip()
       
       if (survived != "" and sex! = "" and age !="" and fare !=""):
-        data["Survived"].append(bool(int("Survived")))
+        data["survived"].append(bool(int("Survived")))
 
         if (int(Sex) == 0):
-          data["Sex"].append("male")
+          data["sex"].append("male")
         else:
-          data["Sex"].append("female")
+          data["sex"].append("female")
         
-        data["Age"].append(float(age))
-        data["Fare"].append(round(float(fare), 2))
+        data["age"].append(float(age))
+        data["fare"].append(round(float(fare), 2))
 
 # Return completed dictionary
   return data
@@ -47,6 +47,43 @@ def plot_age_vs_survival(ax, data):
   # Populate each dictionary
   for index in range (len(data["Age"])):
     age = data["Age"][index]
+    if (age < 18 and data["survived"][index]):
+      children["survived"].append(age)
+    elif (age < 18 and not data["survived"][index]):
+      children["deceased"].append(age)
+    elif (age < 65 and data["survived"][index]):
+      adults["survived"].append(age)
+    elif (age < 65 and not data["survived"][index]):
+      adults["deceased"].append(age)
+    elif (data["survived"][index]):
+      elderly["survived"].append(age)
+    else:
+      elderly["deceased"].append(age)
+
+  # Prepare labels and totals
+  labels = ["children", "adults", "elderly"]
+  survivors = [len(children["survived"]), len(adults["survived"]), len(elderly["survived"])]
+  deceased = [len(children["deceased"]), len(adults["deceased"]), len(elderly["deceased"])]
+
+  # Display suitable bar plots
+  ax.bar(labels, survivors, label="Survived")
+  ax.bar(labels, deceased, bottom=survivors, label ="Deceased")
+  ax.set_ylabel("age")
+  ax.legend()
+  ax.set_title("Age vs Surivival")
+
+def plot_fare_vs_survival(ax, data):
+  survived = []
+  deceased = []
+
+  for index in range (len(data["fare"])):
+    fare = data["fare"][index]
+    if (data["survived"][index]):
+      survived.append(data["fare"][index])
+    else:
+      deceased.append(data["fare"][index])
+
+
 
 # Define run function
 def run():
