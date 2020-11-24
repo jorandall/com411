@@ -11,7 +11,7 @@ def animate(frame):
   ax.set_ylim(-1, 1)
 
   x = np.arange(0, 2*np.pi, 0.01)
-  y = np.sin(x * frame/50)
+  y = np.sin(x + frame/50)
 
   ax.plot(x, y)
 

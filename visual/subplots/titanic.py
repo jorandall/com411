@@ -43,8 +43,8 @@ def plot_age_vs_survival(ax, data):
   elderly = {"survived": [], "deceased": []}
 
   # Populate each dictionary
-  for index in range (len(data["Age"])):
-    age = data["Age"][index]
+  for index in range (len(data["age"])):
+    age = data["age"][index]
     if (age < 18 and data["survived"][index]):
       children["survived"].append(age)
     elif (age < 18 and not data["survived"][index]):
@@ -81,8 +81,8 @@ def plot_fare_vs_survival(ax, data):
     else:
       deceased.append(data["fare"][index])
 
-  ax.scatter(range(len(survived)), survived, labels="Survived")
-  ax.scatter(range(len(survived)), deceased, labels="Deceased")
+  ax.scatter(range(len(survived)), survived, label="Survived")
+  ax.scatter(range(len(survived)), deceased, label="Deceased")
   ax.set_ylabel("fare")
   ax.legend()
   ax.set_title("Fare vs Survival")
