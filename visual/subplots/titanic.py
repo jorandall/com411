@@ -82,7 +82,7 @@ def plot_fare_vs_survival(ax, data):
       deceased.append(data["fare"][index])
 
   ax.scatter(range(len(survived)), survived, label="Survived")
-  ax.scatter(range(len(survived)), deceased, label="Deceased")
+  ax.scatter(range(len(deceased)), deceased, label="Deceased")
   ax.set_ylabel("fare")
   ax.legend()
   ax.set_title("Fare vs Survival")

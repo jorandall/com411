@@ -13,8 +13,8 @@ def init():
   data.append({"x": [1, 1, 6, 6, 1], "y": [1, 6, 6, 1, 1]})
 
 def animate(frame):
-  global ax
-  index = frame % len(data)
+  global data, ax
+  index = frame % 3
   ax.cla()
   ax.set_xlim(0, 7)
   ax.set_ylim(0, 7)
@@ -27,8 +27,8 @@ def run():
   squares_animation = animation.FuncAnimation(
     fig, # Delcare what we are animating
     animate, # Function call to animate
-    frames = 100, # How many frames our animation will have
-    interval = 100, # Time delay between animation in milliseconds
+    frames = 3, # How many frames our animation will have
+    interval = 1000, # Time delay between animation in milliseconds
     init_func=init
     )
   
