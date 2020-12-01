@@ -1,3 +1,6 @@
+from human import Human 
+from robot import Robot
+
 # Define Planet class
 class Planet:
   # Instance variables
@@ -8,20 +11,20 @@ class Planet:
     }
 
   # Instance method for adding a human 
-  def add_human(self, name):
-    self.inhabitants["humans"].append(name)
+  def add_human(self, human):
+    self.inhabitants["humans"].append(human)
 
   # Instance method for removing a human 
-  def remove_human(self, name):
-    self.inhabitants["humans"].remove(name)
+  def remove_human(self, human):
+    self.inhabitants["humans"].remove(human)
 
   # Instance method for adding a robot 
-  def add_robot(self, name):
-    self.inhabitants["robots"].append(name)
+  def add_robot(self, robot):
+    self.inhabitants["robots"].append(robot)
 
   # Instance method for removing a robot
-  def remove_robot(self, name):
-    self.inhabitants["robots"].remove(name)
+  def remove_robot(self, robot):
+    self.inhabitants["robots"].remove(robot)
 
 # Magic methods for displaying data
   def __repr__(self):
@@ -29,11 +32,11 @@ class Planet:
 
   def __str__(self):
     if len(self.inhabitants["humans"]) > 0 and len(self.inhabitants["robots"]) > 0:
-      return "The humans on this planet are {}.\nThe robots on this planet are {}".format(str(self.inhabitants["humans"])[1:-1].replace("'",""), str(self.inhabitants["robots"])[1:-1].replace("'", ""))
+      return "The {} humans on this planet.\nThe are {} robots on this planet".format(len(self.inhabitants["humans"]), len(self.inhabitants["robots"]))
     elif len(self.inhabitants["humans"]) == 0 and len(self.inhabitants["robots"]) > 0:
-      return "There are no humans on this planet.\nThe robots on this planet are {}".format(str(self.inhabitants["robots"])[1:-1].replace("'", ""))
+      return "There are no humans on this planet.\nThe are {} robots on this planet.".format(len(self.inhabitants["robots"]))
     elif len(self.inhabitants["humans"]) > 0 and len(self.inhabitants["robots"]) == 0:
-      return "The humans on this planet are {}.\nThere are no robots on this planet.".format(str(self.inhabitants["humans"])[1:-1].replace("'",""))
+      return "The are {} humans on this planet.\nThere are no robots on this planet.".format(len(self.inhabitants["humans"]))
     else:
       return "This planet is empty!"
 
@@ -41,16 +44,22 @@ class Planet:
 if (__name__ == "__main__"):
   planet = Planet()
   print(planet)
-  planet.add_human("Darren")
+
+  darren = Human("Darren")
+  beep = Robot("Beep")
+  bop = Robot("Bop")
+  bender = Robot("Bender")
+
+  planet.add_human(darren)
   print(planet)
-  planet.add_robot("Beep")
+  planet.add_robot(beep)
   print(planet)
 
-  planet.add_robot("Bop")
-  planet.add_robot("Bender")
+  planet.add_robot(bop)
+  planet.add_robot(bender)
   print(planet)
 
-  planet.remove_robot("Bender")
-  planet.remove_human("Darren")
+  planet.remove_robot(bender)
+  planet.remove_human(darren)
   print(planet)
   

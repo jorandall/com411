@@ -5,9 +5,9 @@ class Human:
   MAX_ENERGY = 100
 
   # Initialiser
-  def __init__(self):
+  def __init__(self, name="Human"):
     # Instance attributes
-    self.name = "Human"
+    self.name = name
     self.age = 0
     self.energy = Human.MAX_ENERGY
 

@@ -8,9 +8,9 @@ class Robot:
     print(Robot.laws)
 
   # Initialiser
-  def __init__(self):
+  def __init__(self, name="Robot"):
     # Instance attributes
-    self.name = "Robot"
+    self.name = name
     self.age = 0
     self.energy = Robot.MAX_ENERGY
 
@@ -38,7 +38,7 @@ class Robot:
 
   # Debugging method
   def __repr__(self):
-    return f"laws={Robot.laws}, name={self.name}, age={self.age}, energy={self.energy}"
+    return f"robot(laws={Robot.laws}, name={self.name}, age={self.age}, energy={self.energy})"
   
   # Print method
   def __str__(self):
@@ -52,5 +52,5 @@ if (__name__ == "__main__"):
   robot = Robot()
   robot.grow()
   robot.eat(20)
-  robot.move(100)
-  
+  robot.move(15)
+  print(repr(robot))
