@@ -38,18 +38,19 @@ class Planet:
       return "This planet is empty!"
 
 # Testing area
-planet = Planet()
-print(planet)
-planet.add_human("Darren")
-print(planet)
-planet.add_robot("Beep")
-print(planet)
+if (__name__ == "__main__"):
+  planet = Planet()
+  print(planet)
+  planet.add_human("Darren")
+  print(planet)
+  planet.add_robot("Beep")
+  print(planet)
 
-planet.add_robot("Bop")
-planet.add_robot("Bender")
-print(planet)
+  planet.add_robot("Bop")
+  planet.add_robot("Bender")
+  print(planet)
 
-planet.remove_robot("Bender")
-planet.remove_human("Darren")
-print(planet)
+  planet.remove_robot("Bender")
+  planet.remove_human("Darren")
+  print(planet)
   
