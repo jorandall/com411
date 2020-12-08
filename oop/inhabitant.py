@@ -1,8 +1,8 @@
 # Import abstract base class
-#from abc import ABC
+from abc import ABC
 
 # Abstract class
-class Inhabitant:
+class Inhabitant(ABC):
   # Class attribute
   MAX_ENERGY = 100
 

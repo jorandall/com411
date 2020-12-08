@@ -43,8 +43,8 @@ class Universe:
         elif isinstance(inhabitant, Robot):
           num_robots += 1
     
-    print(f"Found {num_humans} humans.")
-    print(f"Found {num_robots} robots.")
+      print(f"Found {num_humans} humans.")
+      print(f"Found {num_robots} robots.")
 
     num_subplots = len(self.planets)
     
@@ -63,5 +63,6 @@ class Universe:
 
 if (__name__ == "__main__"):
   universe = Universe()
+  universe.generate()
   universe.generate()
   universe.show_populations()
