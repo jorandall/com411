@@ -17,7 +17,7 @@ class Planet:
 
 # Magic methods for displaying data
   def __repr__(self):
-    return f"inhabitants= {self.inhabitants}"
+    return f"planet(inhabitants= {self.inhabitants})"
 
   def __str__(self):
     return f"There are {len(self.inhabitants)} inhabitants on this planet."

@@ -21,7 +21,7 @@ class Universe:
     # create a new planet
     planet = Planet()
 
-    # populate with random humans and robots
+    # populate with random humans, robots and aliens
     for index in range(random.randint(1, 10)):
       robot = Robot(f"Robot{index}")
       planet.add_inhabitant(robot)
@@ -38,6 +38,10 @@ class Universe:
     self.planets.append(planet)
 
   def show_populations(self):
+    # Specify how many subplots depending on how many planets in list
+    num_subplots = len(self.planets)
+    fig, axs = plt.subplots(1, num_subplots)
+    
     num_humans = 0
     num_robots = 0
     num_aliens = 0
@@ -50,21 +54,16 @@ class Universe:
           num_robots += 1
         else:
           num_aliens += 1
-    
+      
       print(f"Found {num_humans} humans.")
       print(f"Found {num_robots} robots.")
       print(f"Found {num_aliens} aliens.")
 
-    num_subplots = len(self.planets)
-    
-    fig, axs = plt.subplots(1, num_subplots)
-    
     for index in range(num_subplots):
-
-      if (num_subplots == 1):
-        axs.bar([1, 2, 3], [num_humans, num_robots, num_aliens])
+      if num_subplots == 1:
+        axs.bar(["humans", "robots", "aliens"], [num_humans, num_robots, num_aliens])
       else:
-        axs[index].bar([1, 2, 3], [num_humans, num_robots, num_aliens])
+        axs[index].bar(["humans", "robots", "aliens"], [num_humans, num_robots, num_aliens])
 
     plt.tight_layout()  
     plt.show()
@@ -72,6 +71,7 @@ class Universe:
 
 if (__name__ == "__main__"):
   universe = Universe()
+  universe.generate()
   universe.generate()
   universe.generate()
   universe.show_populations()
