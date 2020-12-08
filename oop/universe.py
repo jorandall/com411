@@ -1,6 +1,7 @@
 from planet import Planet
 from robot import Robot
 from human import Human
+from alien import Alien
 import matplotlib.pyplot as plt
 
 import random
@@ -28,6 +29,10 @@ class Universe:
     for index in range(random.randint(1, 10)):
       human = Human(f"Human{index}")
       planet.add_inhabitant(human)
+    
+    for index in range(random.randint(1, 10)):
+      alien = Alien(f"Alien{index}")
+      planet.add_inhabitant(alien)
 
     # add to list of planets
     self.planets.append(planet)
@@ -35,6 +40,7 @@ class Universe:
   def show_populations(self):
     num_humans = 0
     num_robots = 0
+    num_aliens = 0
 
     for planet in self.planets:
       for inhabitant in planet.inhabitants:
@@ -42,9 +48,12 @@ class Universe:
           num_humans += 1
         elif isinstance(inhabitant, Robot):
           num_robots += 1
+        else:
+          num_aliens += 1
     
       print(f"Found {num_humans} humans.")
       print(f"Found {num_robots} robots.")
+      print(f"Found {num_aliens} aliens.")
 
     num_subplots = len(self.planets)
     
@@ -53,9 +62,9 @@ class Universe:
     for index in range(num_subplots):
 
       if (num_subplots == 1):
-        axs.bar([1, 2], [num_humans, num_robots])
+        axs.bar([1, 2, 3], [num_humans, num_robots, num_aliens])
       else:
-        axs[index].bar([1, 2], [num_humans, num_robots])
+        axs[index].bar([1, 2, 3], [num_humans, num_robots, num_aliens])
 
     plt.tight_layout()  
     plt.show()
