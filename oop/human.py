@@ -5,10 +5,7 @@ class Human(Inhabitant):
   
   # Initialiser
   def __init__(self, name="Human"):
-    # Instance attributes
-    self.name = name
-    self.age = 0
-    self.energy = Inhabitant.MAX_ENERGY
+    super().__init__(name)
 
   # Instance method
   def display(self):
