@@ -8,7 +8,9 @@ class Inhabitant:
 
   # Initialiser
   def __init__(self, name="Inhabitant", age=0, energy=MAX_ENERGY):
-    pass
+    self.name = name
+    self.age = age
+    self.energy = energy
 
   # Methods
   def __repr__(self):

@@ -23,24 +23,34 @@ class Universe:
     # populate with random humans and robots
     for index in range(random.randint(1, 10)):
       robot = Robot(f"Robot{index}")
-      planet.add_robot(robot)
+      planet.add_inhabitant(robot)
 
     for index in range(random.randint(1, 10)):
       human = Human(f"Human{index}")
-      planet.add_human(human)
+      planet.add_inhabitant(human)
 
     # add to list of planets
     self.planets.append(planet)
 
   def show_populations(self):
+    num_humans = 0
+    num_robots = 0
+
+    for planet in self.planets:
+      for inhabitant in planet.inhabitants:
+        if isinstance(inhabitant, Human):
+          num_humans += 1
+        elif isinstance(inhabitant, Robot):
+          num_robots += 1
+    
+    print(f"Found {num_humans} humans.")
+    print(f"Found {num_robots} robots.")
+
     num_subplots = len(self.planets)
     
     fig, axs = plt.subplots(1, num_subplots)
     
     for index in range(num_subplots):
-      planet = self.planets[index]
-      num_humans = len(planet.inhabitants['humans'])
-      num_robots = len(planet.inhabitants['robots'])
 
       if (num_subplots == 1):
         axs.bar([1, 2], [num_humans, num_robots])

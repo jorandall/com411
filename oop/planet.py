@@ -5,61 +5,42 @@ from robot import Robot
 class Planet:
   # Instance variables
   def __init__(self):
-    self.inhabitants = {
-    "humans": [],
-    "robots": []
-    }
+    self.inhabitants = []
 
-  # Instance method for adding a human 
-  def add_human(self, human):
-    self.inhabitants["humans"].append(human)
-
-  # Instance method for removing a human 
-  def remove_human(self, human):
-    self.inhabitants["humans"].remove(human)
-
-  # Instance method for adding a robot 
-  def add_robot(self, robot):
-    self.inhabitants["robots"].append(robot)
-
-  # Instance method for removing a robot
-  def remove_robot(self, robot):
-    self.inhabitants["robots"].remove(robot)
+  # Instance method for adding inhabitants
+  def add_inhabitant(self, inhabitant):
+    self.inhabitants.append(inhabitant)
+  
+  # Instance method for removing inhabitants
+  def remove_inhabitant(self, inhabitant):   
+    self.inhabitants.remove(inhabitant)
 
 # Magic methods for displaying data
   def __repr__(self):
-    return "humans = {}, robots = {}".format(self.inhabitants["humans"], self.inhabitants["robots"])
+    return f"inhabitants= {self.inhabitants}"
 
   def __str__(self):
-    if len(self.inhabitants["humans"]) > 0 and len(self.inhabitants["robots"]) > 0:
-      return "The {} humans on this planet.\nThe are {} robots on this planet".format(len(self.inhabitants["humans"]), len(self.inhabitants["robots"]))
-    elif len(self.inhabitants["humans"]) == 0 and len(self.inhabitants["robots"]) > 0:
-      return "There are no humans on this planet.\nThe are {} robots on this planet.".format(len(self.inhabitants["robots"]))
-    elif len(self.inhabitants["humans"]) > 0 and len(self.inhabitants["robots"]) == 0:
-      return "The are {} humans on this planet.\nThere are no robots on this planet.".format(len(self.inhabitants["humans"]))
-    else:
-      return "This planet is empty!"
+    return f"There are {len(self.inhabitants)} inhabitants on this planet."
 
 # Testing area
 if (__name__ == "__main__"):
   planet = Planet()
-  print(planet)
 
   darren = Human("Darren")
   beep = Robot("Beep")
   bop = Robot("Bop")
   bender = Robot("Bender")
 
-  planet.add_human(darren)
+  planet.add_inhabitant(darren)
   print(planet)
-  planet.add_robot(beep)
-  print(planet)
-
-  planet.add_robot(bop)
-  planet.add_robot(bender)
+  planet.add_inhabitant(beep)
   print(planet)
 
-  planet.remove_robot(bender)
-  planet.remove_human(darren)
+  planet.add_inhabitant(bop)
+  planet.add_inhabitant(bender)
+  print(planet)
+
+  planet.remove_inhabitant(bender)
+  planet.remove_inhabitant(darren)
   print(planet)
   
