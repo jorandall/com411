@@ -1,33 +1,14 @@
+from inhabitant import Inhabitant
 
 # Define Human class
-class Human:
-  # Class attribute
-  MAX_ENERGY = 100
-
+class Human(Inhabitant):
+  
   # Initialiser
   def __init__(self, name="Human"):
     # Instance attributes
     self.name = name
     self.age = 0
-    self.energy = Human.MAX_ENERGY
-
-  # Method to increase age
-  def grow(self):
-    self.age += 1
-  
-  # Method to increase energy
-  def eat(self, amount):
-    if (self.energy + amount) <= Human.MAX_ENERGY:
-      self.energy = self.energy + amount
-    else:
-      print("Too full to eat that!")
-
-  # Method to reduce energy due to distance
-  def move(self, distance):
-    if (self.energy - distance) > 0:
-      self.energy = self.energy - distance
-    else:
-      print("I do not have enough energy to do that.")
+    self.energy = Inhabitant.MAX_ENERGY
 
   # Instance method
   def display(self):
