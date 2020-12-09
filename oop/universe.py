@@ -43,11 +43,14 @@ class Universe:
     fig, axs = plt.subplots(1, num_subplots)
 
 
-    for planet in self.planets:
+
+    for index in range(num_subplots):
+      planet = self.planets[index]
       num_humans = 0
       num_robots = 0
       num_aliens = 0
       
+      # Work out how many humans, robots and aliens per planet
       for inhabitant in planet.inhabitants:
         if isinstance(inhabitant, Human):
           num_humans += 1
@@ -55,19 +58,18 @@ class Universe:
           num_robots += 1
         else:
           num_aliens += 1
-      
-      print(f"Found {num_humans} humans.")
-      print(f"Found {num_robots} robots.")
-      print(f"Found {num_aliens} aliens.")
-          
-      
-    for index in range(num_subplots):
-
+     
+     # Plot a subplot for each planet
       if num_subplots == 1:
         axs.bar(["humans", "robots", "aliens"], [num_humans, num_robots, num_aliens])
       else:
         axs[index].bar(["humans", "robots", "aliens"], [num_humans, num_robots, num_aliens])
-
+      
+      print(f"For planet {index}, the inhabitants are:")
+      print(f"Found {num_humans} humans.")
+      print(f"Found {num_robots} robots.")
+      print(f"Found {num_aliens} aliens.")
+          
     plt.tight_layout()  
     plt.show()
 
