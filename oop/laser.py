@@ -17,3 +17,9 @@ class Laser(Tech):
 
   def deactivate(self):
     print("Laser deactivated!")
+
+  def __str__(self):
+    return f"The laser has {Laser.MAX_RANGE} range"
+  
+  def __repr__(self):
+    return f"Laser range = {Laser.MAX_RANGE}"

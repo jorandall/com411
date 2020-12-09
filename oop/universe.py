@@ -41,12 +41,13 @@ class Universe:
     # Specify how many subplots depending on how many planets in list
     num_subplots = len(self.planets)
     fig, axs = plt.subplots(1, num_subplots)
-    
-    num_humans = 0
-    num_robots = 0
-    num_aliens = 0
+
 
     for planet in self.planets:
+      num_humans = 0
+      num_robots = 0
+      num_aliens = 0
+      
       for inhabitant in planet.inhabitants:
         if isinstance(inhabitant, Human):
           num_humans += 1
@@ -58,8 +59,10 @@ class Universe:
       print(f"Found {num_humans} humans.")
       print(f"Found {num_robots} robots.")
       print(f"Found {num_aliens} aliens.")
-
+          
+      
     for index in range(num_subplots):
+
       if num_subplots == 1:
         axs.bar(["humans", "robots", "aliens"], [num_humans, num_robots, num_aliens])
       else:

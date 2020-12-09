@@ -16,7 +16,7 @@ class Human(Inhabitant):
 
   # Debugging method
   def __repr__(self):
-    return f"name={self.name}, age={self.age}, energy={self.energy}"
+    return f"name={self.name}, age={self.age}, energy={self.energy}, clothing = {self.clothing}"
   
   # Print method
   def __str__(self):
